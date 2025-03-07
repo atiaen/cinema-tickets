@@ -29,7 +29,7 @@ public class TicketServiceTest {
     @Test(expected = InvalidPurchaseException.class)
     public void shouldThrowExceptionWhenInvalidId() {
         TicketTypeRequest[] ticketTypeRequests = new TicketTypeRequest[] {
-                new TicketTypeRequest(TicketTypeRequest.Type.ADULT, 1),
+                new TicketTypeRequest(TicketTypeRequest.Type.ADULT, 2),
                 new TicketTypeRequest(TicketTypeRequest.Type.INFANT, 1),
                 new TicketTypeRequest(TicketTypeRequest.Type.CHILD, 1)
 
@@ -65,9 +65,31 @@ public class TicketServiceTest {
     @Test
     public void shouldPassWhenExactly25() {
         TicketTypeRequest[] ticketTypeRequests = new TicketTypeRequest[] {
-                new TicketTypeRequest(TicketTypeRequest.Type.ADULT, 23),
+                new TicketTypeRequest(TicketTypeRequest.Type.ADULT, 2),
                 new TicketTypeRequest(TicketTypeRequest.Type.INFANT, 1),
                 new TicketTypeRequest(TicketTypeRequest.Type.CHILD, 1)
+
+        };
+
+        assertEquals("Tickets reserved", ticketService.purchaseTickets(1l, ticketTypeRequests));
+    }
+
+    @Test
+    public void shouldPassWhenAdultAndInfant() {
+        TicketTypeRequest[] ticketTypeRequests = new TicketTypeRequest[] {
+                new TicketTypeRequest(TicketTypeRequest.Type.ADULT, 2),
+                new TicketTypeRequest(TicketTypeRequest.Type.INFANT, 1),
+
+        };
+
+        assertEquals("Tickets reserved", ticketService.purchaseTickets(1l, ticketTypeRequests));
+    }
+
+    @Test
+    public void shouldPassWhenAdultAndChild() {
+        TicketTypeRequest[] ticketTypeRequests = new TicketTypeRequest[] {
+                new TicketTypeRequest(TicketTypeRequest.Type.ADULT, 2),
+                new TicketTypeRequest(TicketTypeRequest.Type.CHILD, 1),
 
         };
 

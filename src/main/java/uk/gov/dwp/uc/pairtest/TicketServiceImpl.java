@@ -1,7 +1,6 @@
 package uk.gov.dwp.uc.pairtest;
 
 import java.util.Arrays;
-import java.util.Collection;
 
 import thirdparty.paymentgateway.TicketPaymentServiceImpl;
 import thirdparty.seatbooking.SeatReservationServiceImpl;
