@@ -25,10 +25,6 @@ The `TicketServiceImpl` class provides the functionality to purchase tickets. Ke
   - **Adults:** £25 per ticket
   - **Children:** £15 per ticket
   - **Infants:** £0 (Infants do not occupy a seat)
-- **Seat Reservation & Payment Handling**:
-  - **Payments** are processed via `TicketPaymentServiceImpl`.
-  - **Seat reservations** are handled via `SeatReservationServiceImpl`.
-  - Infants **do not** require a seat reservation.
 
 ### **Unit Tests in `TicketServiceTest`**
 The test suite covers the following scenarios:
